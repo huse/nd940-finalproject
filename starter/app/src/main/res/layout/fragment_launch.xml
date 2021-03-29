@@ -6,13 +6,49 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.android.politicalpreparedness.MainActivity">
+        tools:context="com.hus.android.politicalpreparedness.MainActivity">
 
         <!-- TODO: Add image for home screen logo. -->
 
         <!-- TODO: Add Button to navigate to upcoming elections. -->
 
         <!-- TODO: Add Button to navigate to representatives. -->
+        <ImageView
+            android:id="@+id/logo_image_view"
+            app:srcCompat="@drawable/ballot_logo"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <Button
+            android:id="@+id/run_future_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="14dp"
+            android:text="Election up coming"
+            app:layout_constraintBottom_toTopOf="@+id/run_finding_representative_bt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_image_view" />
+
+        <Button
+            android:id="@+id/run_finding_representative_bt"
+            android:layout_width="0dp"
+            android:text="Finding the Representative"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
