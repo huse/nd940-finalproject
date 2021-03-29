@@ -22,11 +22,11 @@ class VoterInfoViewModel(electionDao: ElectionDao) : ViewModel() {
         }*/
     //source:  https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary
     private val idElectionMutable = MutableLiveData<Int>()
-/*    val election = idElectionMutable.switchMap {
+    val election = idElectionMutable.switchMap {
         liveData {
             emitSource(repo.gettingOneElectionByIdFromRepo(it))
         }
-    }*/
+    }
     //repo.getElectionById(electionId)/**/
     fun updatingElections(election: Election) {
 
