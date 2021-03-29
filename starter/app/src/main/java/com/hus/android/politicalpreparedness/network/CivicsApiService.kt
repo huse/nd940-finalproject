@@ -57,7 +57,9 @@ interface CivicsApiService {
 }
 
 object CivicsApi {
+
     val retrofitService: CivicsApiService by lazy {
         retrofit.create(CivicsApiService::class.java)
     }
+
 }

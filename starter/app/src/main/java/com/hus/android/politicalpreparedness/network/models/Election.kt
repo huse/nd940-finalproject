@@ -10,9 +10,9 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "election_table")
 @Parcelize
 data class Election(
-        @PrimaryKey val id: Int,
-        @ColumnInfo(name = "name")val name: String,
-        @ColumnInfo(name = "electionDay")val electionDay: Date,
-        @Embedded(prefix = "division_") @Json(name="ocdDivisionId") val division: Division,
+        @PrimaryKey var id: Int,
+        @ColumnInfo(name = "name")var name: String,
+        @ColumnInfo(name = "electionDay")var electionDay: Date,
+        @Embedded(prefix = "division_") @Json(name="ocdDivisionId") var division: Division,
         @ColumnInfo(name = "Saved") var Saved: Boolean = false
 ) : Parcelable

@@ -1,5 +1,6 @@
 package com.hus.android.politicalpreparedness.representative
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,14 +13,22 @@ class RepresentativeViewModel: ViewModel() {
 
     val _representatives = MutableLiveData<List<Representative>>()
     val address = MutableLiveData<Address>()
-
+    val TAG = "RepresentativeViewModel"
     fun getRepresentatives() {
         if (address.value != null) {
             viewModelScope.launch {
                 try {
                     val (offices, officials) = CivicsApi.retrofitService.gettingRepresentativeInformations(address.value!!.toFormattedString()).await()
+                    Log.d(TAG, "hhh  getRepresentatives called. offices:   "   + offices)
+                    Log.d(TAG, "hhh  getRepresentatives called. officials:   "   + officials)
+
                     _representatives.value = offices.flatMap { office -> office.getRepresentatives(officials) }
+                    Log.d(TAG, "hhh  getRepresentatives called. _representatives.value:   "   + _representatives.value)
+
+
                 } catch (e: Throwable) {
+                    Log.d(TAG, "hhh  getRepresentatives called. failed:   ")
+
                     e.printStackTrace()
                 }
             }

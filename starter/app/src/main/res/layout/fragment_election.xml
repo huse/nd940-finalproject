@@ -20,7 +20,8 @@
         <!-- TODO: Add Saved Election Recycler and Header -->
         <TextView
             android:id="@+id/header_future_election_text_view"
-            android:text="Elections Up coming"
+            android:text="Elections Up coming:"
+            android:textSize="28dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +40,8 @@
             android:id="@+id/stored_election_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Election saved"
+            android:textSize="28dp"
+            android:text="Elections saved:"
             app:layout_constraintBottom_toTopOf="@+id/stored_election_recycler_view"
             app:layout_constraintTop_toBottomOf="@+id/future_election_recycler_view"
             app:layout_constraintStart_toStartOf="parent" />

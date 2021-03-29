@@ -28,30 +28,35 @@ class VoterInfoViewModel(electionDao: ElectionDao) : ViewModel() {
         }
     }*/
 
-/*    private val electionId = Transformations.switchMap()
-    val election = electionId.switchMap {
+/*    private var electionId = Transformations.switchMap()
+    var election = electionId.switchMap {
         liveData {
             emitSource(repo.getElectionById(it))
         }
     }*/
 
-    private val election1: LiveData<Election> = Transformations.switchMap<Int, Election>( MutableLiveData<Int>()) { id: Int -> projectRepository.gettingOneElectionByIdFromRepo(id)}
+     var election1: LiveData<Election> = Transformations.switchMap<Int, Election>( MutableLiveData<Int>()) { id: Int -> projectRepository.gettingOneElectionByIdFromRepo(id)}
 
     //val election: Election = { id: Int -> projectRepository.gettingOneElectionByIdFromRepo(id)}
 
-    val election = election1.value
+    var election = election1.value
         //projectRepository.getElectionById(electionId)/**/
-    fun updatingElections(election: Election) {
+    fun updatingElections(election222: Election) {
 
-    Log.d(TAG, "hhh  updatingElections called. election:   "  + election)
+    Log.d(TAG, "hhh  updatingElections called. election:   "  + election222)
     viewModelScope.launch {
-        election.Saved = !election.Saved
+        election222.Saved = !election222.Saved
         storedElectionStatusMutable.value = !storedElectionStatusMutable.value!!
-        projectRepository.updatingDataElectionInRepo(election)
+        projectRepository.updatingDataElectionInRepo(election222)
     }
     }
     fun gettingElectionById(electionId: Int) {
         Log.d(TAG, "hhh  gettingVotersInformations called. electionId:    "  + electionId)
+        Log.d(TAG, "hhh  gettingVotersInformations called. election:    "  + election)
+        Log.d(TAG, "hhh  gettingVotersInformations called. election1:    "  + election1)
+        Log.d(TAG, "hhh  gettingVotersInformations called. gettingOneElectionByIdFromRepo:    "  + projectRepository.gettingOneElectionByIdFromRepo(electionId).value)
+
+
         idElectionMutable.value = electionId
     }
     init { storedElectionStatusMutable.value = false}
@@ -64,9 +69,9 @@ class VoterInfoViewModel(electionDao: ElectionDao) : ViewModel() {
         Log.d(TAG, "hhh  gettingVotersInformations called. url:     "  + url)
         this.linkUrlMutable.value = url }
 
-    fun settingElectionById(electionId: Int) {
-        Log.d(TAG, "hhh  settingElectionById called. electionId:    "  + electionId)
-        idElectionMutable.value = electionId
+    fun settingElectionById(election333: Election) {
+        Log.d(TAG, "hhh  settingElectionById called. electionId:    "  + election333)
+        //election.electionDay = !election333.electionDay
     }
     //TODO: Add live data to hold voter info
 

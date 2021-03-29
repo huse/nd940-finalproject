@@ -18,12 +18,12 @@
         <!-- TODO: Add title to toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/election_name"
+            app:title="@{voterinfoviewModellayout.election.name}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/default_padding"
             android:singleLine="true"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="@{voterinfoviewModellayout.election.name}"
             />
 
         <!-- TODO: Add visual styling -->
