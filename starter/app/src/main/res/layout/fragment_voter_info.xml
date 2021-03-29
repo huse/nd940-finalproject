@@ -34,7 +34,7 @@
             android:layout_margin="@dimen/default_padding"
             android:text="@{voterinfoviewModellayout.election.electionDay.toString()}"
             app:layout_constraintTop_toBottomOf="@id/election_name"
-            tools:text="12 November 2055" />
+             />
 
         <!-- TODO: Add visual styling and content -->
         <TextView
@@ -86,6 +86,7 @@
         <!-- TODO: Add data binding -->
         <TextView
             android:id="@+id/address"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 

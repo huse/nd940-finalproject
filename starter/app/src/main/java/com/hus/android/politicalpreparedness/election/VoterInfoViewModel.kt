@@ -39,7 +39,7 @@ class VoterInfoViewModel(electionDao: ElectionDao) : ViewModel() {
 
     //val election: Election = { id: Int -> projectRepository.gettingOneElectionByIdFromRepo(id)}
 
-    var election = election1.value
+    var election = election1
         //projectRepository.getElectionById(electionId)/**/
     fun updatingElections(election222: Election) {
 
