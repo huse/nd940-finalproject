@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:autofillHints="Address line 1"
             android:inputType="textPostalAddress"
+            android:text="@{viewModel.address.line1}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_title" />
 
@@ -44,6 +45,7 @@
             android:id="@+id/address_line_2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:text="@{viewModel.address.line2}"
             android:autofillHints="Address line 2"
             android:inputType="textPostalAddress"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +56,7 @@
         <EditText
             android:id="@+id/city"
             android:layout_width="0dp"
+            android:text="@{viewModel.address.city}"
             android:layout_height="wrap_content"
             android:autofillHints="city"
             android:inputType="textPostalAddress"
@@ -79,6 +82,7 @@
         <!-- TODO: Add visual styling and content -->
         <EditText
             android:id="@+id/zip"
+            android:text="@{viewModel.address.zip}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="zip"

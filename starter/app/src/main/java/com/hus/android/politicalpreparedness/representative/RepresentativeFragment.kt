@@ -61,6 +61,9 @@ class DetailFragment : Fragment() , AdapterView.OnItemSelectedListener{
             representativeViewModel.address.value = address1
             representativeViewModel.getRepresentatives()
             hideKeyboard()
+
+            Log.d ( TAG, "hhh calling    Search button"  )
+
         }
         representativeListAdapter = RepresentativeListAdapter()
         fragmentRepresentativeBinding.representativesRecyclerView.adapter = representativeListAdapter
@@ -116,20 +119,28 @@ class DetailFragment : Fragment() , AdapterView.OnItemSelectedListener{
 
     private fun isPermissionGranted() : Boolean {
 
-        Log.d ( TAG, "hhh calling    isPermissionGranted"  )
-        return (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION))
+
+        val result = (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION))
+        Log.d ( TAG, "hhh calling    isPermissionGranted   result:  $result")
+        return result
         //TODO: Check if permission is already granted and return (true = granted, false = denied/other)
     }
     @SuppressLint("MissingPermission")
     private fun getLocation() {
         Log.d ( TAG, "hhh calling    getLocation"  )
-        LocationServices.getFusedLocationProviderClient(requireContext()).lastLocation.addOnSuccessListener {
+        //LocationServices.getFusedLocationProviderClient(requireContext()).lastLocation.addOnSuccessListener
+
+        val providerClient = LocationServices.getFusedLocationProviderClient(requireContext())
+
+        Log.d ( TAG, "hhh calling    getLocation  fusedLocationProviderClient:    $providerClient")
+        providerClient.lastLocation
+                .addOnSuccessListener{
                     if (it != null) {
                         representativeViewModel.address.value = geoCodeLocation(it)
                         fragmentRepresentativeBinding.state.setSelection(resources.getStringArray(R.array.states).indexOf(geoCodeLocation(it).state))
                         representativeViewModel.getRepresentatives()
                     } else
-                        Log.d ( TAG, "hhh   getLocation :  null"  )
+                        Log.d ( TAG, "hhh   getLocation :  null:   $it")
                 }
                 .addOnFailureListener { it.printStackTrace()}
         //TODO: Get location from LocationServices

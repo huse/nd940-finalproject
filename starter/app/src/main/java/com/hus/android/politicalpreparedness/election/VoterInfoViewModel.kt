@@ -1,9 +1,7 @@
 package com.hus.android.politicalpreparedness.election
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 
 import com.hus.android.politicalpreparedness.database.ElectionDao
 import com.hus.android.politicalpreparedness.database.ProjectRepository
@@ -15,19 +13,34 @@ class VoterInfoViewModel(electionDao: ElectionDao) : ViewModel() {
     private var TAG = "VoterInfoViewModel"
     val voterInformationMutable = projectRepository.voterInfoMutableLiveData
     val storedElectionStatusMutable = MutableLiveData<Boolean>()
+    private val idElectionMutable = MutableLiveData<Int>()
     var linkUrlMutable = MutableLiveData<String>()
+
 /*    val election: Election
         get() {
            return electionId
         }*/
     //source:  https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary
-    private val idElectionMutable = MutableLiveData<Int>()
+/*    private val idElectionMutable = LiveData<Int>()
     val election = idElectionMutable.switchMap {
         liveData {
             emitSource(projectRepository.gettingOneElectionByIdFromRepo(it))
         }
-    }
-    //projectRepository.getElectionById(electionId)/**/
+    }*/
+
+/*    private val electionId = Transformations.switchMap()
+    val election = electionId.switchMap {
+        liveData {
+            emitSource(repo.getElectionById(it))
+        }
+    }*/
+
+    private val election1: LiveData<Election> = Transformations.switchMap<Int, Election>( MutableLiveData<Int>()) { id: Int -> projectRepository.gettingOneElectionByIdFromRepo(id)}
+
+    //val election: Election = { id: Int -> projectRepository.gettingOneElectionByIdFromRepo(id)}
+
+    val election = election1.value
+        //projectRepository.getElectionById(electionId)/**/
     fun updatingElections(election: Election) {
 
     Log.d(TAG, "hhh  updatingElections called. election:   "  + election)
@@ -36,7 +49,7 @@ class VoterInfoViewModel(electionDao: ElectionDao) : ViewModel() {
         storedElectionStatusMutable.value = !storedElectionStatusMutable.value!!
         projectRepository.updatingDataElectionInRepo(election)
     }
-}
+    }
     fun gettingElectionById(electionId: Int) {
         Log.d(TAG, "hhh  gettingVotersInformations called. electionId:    "  + electionId)
         idElectionMutable.value = electionId
