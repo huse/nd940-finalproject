@@ -24,10 +24,10 @@ class VoterInfoViewModel(electionDao: ElectionDao) : ViewModel() {
     private val idElectionMutable = MutableLiveData<Int>()
     val election = idElectionMutable.switchMap {
         liveData {
-            emitSource(repo.gettingOneElectionByIdFromRepo(it))
+            emitSource(projectRepository.gettingOneElectionByIdFromRepo(it))
         }
     }
-    //repo.getElectionById(electionId)/**/
+    //projectRepository.getElectionById(electionId)/**/
     fun updatingElections(election: Election) {
 
     Log.d(TAG, "hhh  updatingElections called. election:   "  + election)
