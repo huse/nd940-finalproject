@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="state header"
+            android:text="@string/state_header"
             app:layout_constraintTop_toBottomOf="@id/election_date"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
@@ -53,7 +53,7 @@
             android:onClick="@{()->voterinfoviewModellayout.gettingUrl(voterinfoviewModellayout.voterInformationMutable.state[0].electionAdministrationBody.votingLocationFinderUrl)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="state locations"
+            android:text="@string/state_locations"
             app:layout_constraintTop_toBottomOf="@id/state_header"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
@@ -63,7 +63,7 @@
             android:id="@+id/state_ballot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="information for representative"
+            android:text="@string/information_for_representative"
             app:layout_constraintTop_toBottomOf="@id/state_locations"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="state correspondence header"
+            android:text="@string/state_correspondence_header"
             app:layout_constraintTop_toBottomOf="@id/state_ballot"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="Address"
+            android:text="@string/address"
             app:layout_constraintTop_toBottomOf="@id/state_correspondence_header"
             app:layout_constraintStart_toStartOf="@id/election_date" />
 
@@ -99,9 +99,9 @@
             android:id="@+id/save_election_bt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="@dimen/padiing_mid"
+            android:layout_marginEnd="@dimen/padiing_mid"
+            android:layout_marginBottom="@dimen/padiing_mid"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

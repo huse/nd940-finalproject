@@ -11,8 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginStart="14dp">
+        android:layout_marginTop="@dimen/padiing_small"
+        android:layout_marginStart="@dimen/padiing_mid">
 
         <ImageView
             android:id="@+id/representative_photo"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="@{representative.official.name}"
 
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_large"
             app:layout_constraintStart_toEndOf="@+id/representative_photo"
             app:layout_constraintTop_toBottomOf="@+id/office_repository_text"
             app:layout_constraintBottom_toTopOf="@+id/party_repository_text"
@@ -41,7 +41,7 @@
             android:id="@+id/party_repository_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_large"
             android:text="@{representative.official.party}"
             app:layout_constraintTop_toBottomOf="@+id/Name_repository_text_view"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,9 +51,9 @@
             android:id="@+id/office_repository_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/padding_large"
             android:text="@{representative.office.name}"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_mid"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/Name_repository_text_view"
             app:layout_constraintEnd_toStartOf="@+id/pic_www"
@@ -64,8 +64,8 @@
         <ImageView
             android:id="@+id/pic_facebook"
             android:layout_marginEnd="10dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/padding_large"
+            android:layout_height="@dimen/padding_large"
             app:srcCompat="@drawable/ic_facebook"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/pic_twitter"
@@ -73,9 +73,9 @@
 
         <ImageView
             android:id="@+id/pic_www"
-            android:layout_marginEnd="8dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_marginEnd="@dimen/padiing_small"
+            android:layout_width="@dimen/padding_large"
+            android:layout_height="@dimen/padding_large"
             app:srcCompat="@drawable/ic_www"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -85,9 +85,9 @@
 
         <ImageView
             android:id="@+id/pic_twitter"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="@dimen/padding_large"
+            android:layout_height="@dimen/padding_large"
+            android:layout_marginEnd="@dimen/padiing_mid"
             app:srcCompat="@drawable/ic_twitter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -40,8 +40,8 @@
             android:id="@+id/stored_election_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="28dp"
-            android:text="Elections saved:"
+            android:textSize="@dimen/text_size_mid"
+            android:text="@string/elections_saved"
             app:layout_constraintBottom_toTopOf="@+id/stored_election_recycler_view"
             app:layout_constraintTop_toBottomOf="@+id/future_election_recycler_view"
             app:layout_constraintStart_toStartOf="parent" />
